@@ -1,22 +1,23 @@
 package com.study.s1.start;
 
 import java.util.List;
+import java.util.Scanner;
 
-import com.study.s1.location.LocationDAO;
-import com.study.s1.location.LocationDTO;
-import com.study.s1.location.LocationView;
+import com.study.s1.department.DepartmentDAO;
+import com.study.s1.department.DepartmentDTO;
+import com.study.s1.department.DepartmentView;
 
 public class StartMain {
 
 	public static void main(String[] args) throws Exception {
-		
+		Scanner sc = new Scanner(System.in);
 		System.out.println("DB연동 테스트 시작");
 		
-		LocationDAO locationDAO = new LocationDAO();
-		LocationView locationView = new LocationView();
+		DepartmentDAO departmentDAO = new DepartmentDAO();
+		DepartmentView departmentView = new DepartmentView();
 		
-		List<LocationDTO> list =  locationDAO.getList();
-		locationView.view(list);
+		DepartmentDTO departmentDTO =   departmentDAO.getOne(20);
+		departmentView.view(departmentDTO);
 		System.out.println("DB연동 테스트 끝");
 		
 	}

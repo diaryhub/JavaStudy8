@@ -13,4 +13,13 @@ public class DepartmentView {
 		System.out.println("===============================================");
 		}
 	}
+	
+	public void view(DepartmentDTO departmentDTO) {
+		
+		System.out.println(departmentDTO.getDepartment_name());
+//		System.out.println(departmentDTO.getDepartment_id());
+//		System.out.println(departmentDTO.getManager_id());
+//		System.out.println(departmentDTO.getLocation_id());
+	}
+	
 }

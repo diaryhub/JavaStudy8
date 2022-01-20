@@ -3,6 +3,7 @@ package com.study.s1.department;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,39 @@ public class DepartmentDAO {
 	public DepartmentDAO() {
 	dbConnector = new DBConnector();
 	}
+	
+	public DepartmentDTO getOne(Integer department_id) throws SQLException {
+		DepartmentDTO departmentDTO = null;
+		//1. DB login
+		Connection con = dbConnector.getConnect();
+		//2. SQL Query
+		String SQL = "SELECT department_name dname FROM departments WHERE department_id = ? ";
+		//3. Query send
+			PreparedStatement st = con.prepareStatement(SQL);
+		//4. ? setting
+			//st.set데이터타입(int index, 값); 
+			//index는 ? 의 순서 번호
+			//그러나 oracle은 1번부터 시작
+			st.setInt(1, department_id);
+		//5. result set		
+		ResultSet rs = st.executeQuery();
+		if(rs.next()) {
+			departmentDTO = new DepartmentDTO();
+			departmentDTO.setDepartment_name(rs.getString("dname"));
+//			departmentDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
+//			departmentDTO.setManager_id(rs.getInt("MANAGER_ID"));
+//			departmentDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+		}	
+		
+		//6. resource close
+		rs.close();
+		st.close();
+		con.close();
+		
+		return departmentDTO;
+		
+	}
+	
 	public List<DepartmentDTO> getList() throws Exception{
 		//SELECT * FROM DEPARTMENTS;
 		

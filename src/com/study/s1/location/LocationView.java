@@ -2,6 +2,7 @@ package com.study.s1.location;
 
 import java.util.List;
 
+
 public class LocationView {
 	
 	public void view(List<LocationDTO> list) {
@@ -13,10 +14,9 @@ public class LocationView {
 			System.out.print(list.get(i).getState_province()+"\t");
 			System.out.println(list.get(i).getCountry_id()+"\t");
 			System.out.println("=========================================");
-		}
-		
-		
+		}	
 	}
 	
+
 	
 }
