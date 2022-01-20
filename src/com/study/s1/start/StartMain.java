@@ -2,9 +2,9 @@ package com.study.s1.start;
 
 import java.util.List;
 
-import com.study.s1.department.DepartmentDAO;
-import com.study.s1.department.DepartmentDTO;
-import com.study.s1.department.DepartmentView;
+import com.study.s1.location.LocationDAO;
+import com.study.s1.location.LocationDTO;
+import com.study.s1.location.LocationView;
 
 public class StartMain {
 
@@ -12,11 +12,11 @@ public class StartMain {
 		
 		System.out.println("DB연동 테스트 시작");
 		
-		DepartmentDAO departmentDAO = new DepartmentDAO();
-		DepartmentView departmentView = new DepartmentView();
+		LocationDAO locationDAO = new LocationDAO();
+		LocationView locationView = new LocationView();
 		
-		List<DepartmentDTO> ar = departmentDAO.getList();
-		departmentView.view(ar);
+		List<LocationDTO> list =  locationDAO.getList();
+		locationView.view(list);
 		System.out.println("DB연동 테스트 끝");
 		
 	}

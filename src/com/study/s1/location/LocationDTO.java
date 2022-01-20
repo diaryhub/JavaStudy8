@@ -3,11 +3,11 @@ package com.study.s1.location;
 public class LocationDTO {
 	
 	private Integer location_id; 
-	private String street_adress;
+	private String street_address;
 	private String postal_code;
 	private String city;
 	private String state_province;
-	private Integer country_id;
+	private String country_id;
 	
 	public Integer getLocation_id() {
 		return location_id;
@@ -15,11 +15,11 @@ public class LocationDTO {
 	public void setLocation_id(Integer location_id) {
 		this.location_id = location_id;
 	}
-	public String getStreet_adress() {
-		return street_adress;
+	public String getStreet_address() {
+		return street_address;
 	}
-	public void setStreet_adress(String street_adress) {
-		this.street_adress = street_adress;
+	public void setStreet_address(String street_address) {
+		this.street_address = street_address;
 	}
 	public String getPostal_code() {
 		return postal_code;
@@ -39,10 +39,10 @@ public class LocationDTO {
 	public void setState_province(String state_province) {
 		this.state_province = state_province;
 	}
-	public Integer getCountry_id() {
+	public String getCountry_id() {
 		return country_id;
 	}
-	public void setCountry_id(Integer country_id) {
+	public void setCountry_id(String country_id) {
 		this.country_id = country_id;
 	}
 	
