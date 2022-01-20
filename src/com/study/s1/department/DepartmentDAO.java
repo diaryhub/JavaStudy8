@@ -23,7 +23,7 @@ public class DepartmentDAO {
 		//1. DB login
 		Connection con = dbConnector.getConnect();
 		//2. SQL Query
-		String SQL = "SELECT department_name dname FROM departments WHERE department_id = ? ";
+		String SQL = "SELECT * FROM departments WHERE department_id = ? ";
 		//3. Query send
 			PreparedStatement st = con.prepareStatement(SQL);
 		//4. ? setting
@@ -35,10 +35,10 @@ public class DepartmentDAO {
 		ResultSet rs = st.executeQuery();
 		if(rs.next()) {
 			departmentDTO = new DepartmentDTO();
-			departmentDTO.setDepartment_name(rs.getString("dname"));
-//			departmentDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
-//			departmentDTO.setManager_id(rs.getInt("MANAGER_ID"));
-//			departmentDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			departmentDTO.setDepartment_name(rs.getString("department_name"));
+			departmentDTO.setDepartment_id(rs.getInt("department_id"));
+			departmentDTO.setManager_id(rs.getInt("manager_id"));
+			departmentDTO.setLocation_id(rs.getInt("location_id"));
 		}	
 		
 		//6. resource close
