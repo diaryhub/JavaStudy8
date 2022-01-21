@@ -15,10 +15,11 @@ public class DepartmentView {
 	}
 	
 	public void view(DepartmentDTO departmentDTO) {
-		System.out.println(departmentDTO.getDepartment_name());
-		System.out.println(departmentDTO.getDepartment_id());
-		System.out.println(departmentDTO.getManager_id());
-		System.out.println(departmentDTO.getLocation_id());
+		System.out.print(departmentDTO.getDepartment_name()+"\t");
+		System.out.print(departmentDTO.getDepartment_id()+"\t");
+		System.out.print(departmentDTO.getManager_id()+"\t");
+		System.out.println(departmentDTO.getLocation_id()+"\t");
+		System.out.println("===============================================");
 	}
 	
 }
