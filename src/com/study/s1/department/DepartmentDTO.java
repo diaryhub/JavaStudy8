@@ -1,11 +1,16 @@
 package com.study.s1.department;
 
+import java.util.List;
+
+import com.study.s1.employee.EmployeeDTO;
+
 public class DepartmentDTO {
 	
 	private Integer department_id;
 	private String department_name;
 	private Integer manager_id;
 	private Integer location_id;
+	private List<EmployeeDTO> employeeDTOs;
 	public Integer getDepartment_id() {
 		return department_id;
 	}

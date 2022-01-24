@@ -18,6 +18,22 @@ public class DepartmentDAO {
 	dbConnector = new DBConnector();
 	}
 	
+	public void getDEP_EMPList() throws SQLException {
+		
+		Connection con = dbConnector.getConnect();
+		String sql = "SELECT D.*,E.* FROM departments D INNER JOIN employees E ON (e.department_id = d.department_id);";
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			
+			
+			
+		}
+		
+		
+	}
+	
 	public DepartmentDTO getOne(Integer department_id) throws SQLException {
 		DepartmentDTO departmentDTO = null;
 		//1. DB login
