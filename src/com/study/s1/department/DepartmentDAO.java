@@ -65,6 +65,49 @@ public class DepartmentDAO {
 		return departmentDTO;
 		
 	}
+	public int setInsert(DepartmentDTO departmentDTO) throws SQLException {
+		
+		Connection con = dbConnector.getConnect();
+		String sql = "INSERT INTO DEPARTMENTS VALUES( ? , ? , ? , ? )";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, departmentDTO.getDepartment_id());
+		st.setString(2, departmentDTO.getDepartment_name());
+		st.setInt(3, departmentDTO.getManager_id());
+		st.setInt(4, departmentDTO.getLocation_id());
+		int result = st.executeUpdate();
+		st.close();
+		con.close();
+		
+		return result;
+	}
+	public int setDelete(DepartmentDTO departmentDTO) throws SQLException {
+		
+		Connection con = dbConnector.getConnect();
+		String sql = "DELETE DEPARTMENTS WHERE DEPARTMENT_ID = ? ";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, departmentDTO.getDepartment_id());
+		int result = st.executeUpdate();
+		st.close();
+		con.close();
+		
+		return result;
+	}
+	
+	public int setUpdate(DepartmentDTO departmentDTO) throws Exception{
+		Connection con = dbConnector.getConnect();
+		String sql = "UPDATE DEPARTMENTS SET DEPARTMENT_NAME = ?, MANAGER_ID = ?, LOCATION_ID = ? WHERE DEPARTMENT_ID = ? ";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(4, departmentDTO.getDepartment_id());
+		st.setString(1, departmentDTO.getDepartment_name());
+		st.setInt(2, departmentDTO.getManager_id());
+		st.setInt(3, departmentDTO.getLocation_id());
+		
+		int result = st.executeUpdate();
+		st.close();
+		con.close();
+		return result;
+	}
+	
 	
 	public List<DepartmentDTO> getList() throws Exception{
 		//SELECT * FROM DEPARTMENTS;

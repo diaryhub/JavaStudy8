@@ -22,4 +22,13 @@ public class DepartmentView {
 		System.out.println("===============================================");
 	}
 	
+	public void view(int result) {
+		if(result>0) {
+			System.out.println("성공");
+		}
+		else {
+			System.out.println("실패");
+		}
+	}
+	
 }
